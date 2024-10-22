@@ -17,8 +17,7 @@ public class Stack {
     int topmostValue = 0;
     if (isEmpty()) {
       throw new IllegalStateException("Stack is empty");
-    } 
-    else {
+    } else {
       topmostValue = top.val;
       top = top.next;
       return topmostValue;
