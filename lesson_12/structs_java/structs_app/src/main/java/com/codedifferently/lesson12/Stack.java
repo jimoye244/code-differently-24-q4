@@ -16,8 +16,9 @@ public class Stack {
   public int pop() {
     int topmostValue = 0;
     if (isEmpty()) {
-      return Integer.parseInt(null);
-    } else {
+      throw new IllegalStateException("Stack is empty");
+    } 
+    else {
       topmostValue = top.val;
       top = top.next;
       return topmostValue;
@@ -26,7 +27,7 @@ public class Stack {
 
   public int peek() {
     if (isEmpty()) {
-      return Integer.parseInt(null);
+      throw new IllegalStateException("Stack is empty, no value to peek");
     }
     return top.val;
   }
