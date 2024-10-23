@@ -24,7 +24,10 @@ export class Stack {
   }
 
   peek(): number | null {
-       return this.top ? this.top.val : null;
+      if (this.top == undefined) 
+        throw new Error('No value to pop');
+      else
+       return this.top.val;
   }
 
   isEmpty(): boolean {
