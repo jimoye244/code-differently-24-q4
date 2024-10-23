@@ -1,11 +1,22 @@
 import { ListNode } from './list_node.js';
 
 export class Lesson12 {
-  /**
-   * Provide the solution to LeetCode 3062 here:
-   * https://github.com/yang-su2000/Leetcode-algorithm-practice/tree/master/3062-winner-of-the-linked-list-game
-   */
   public gameResult(head: ListNode | null): string {
-    return '';
-  }
-}
+    const result: number[] = [0, 0];
+    let current: ListNode | null = head;
+
+    while (current && current.next) {
+        if (current.val !== current.next.val && current.val % 2 === 0) {
+            if (current.val > current.next.val) {
+                result[current.val % 2] += 1;
+            } else {
+                result[current.next.val % 2] += 1;
+            }
+        }
+        current = current.next;
+    }
+    return (result[0] == result[1]) ? 'Tie' : (result[0] > result[1] ? 'Even' : 'Odd');
+ } 
+
+}  
+
