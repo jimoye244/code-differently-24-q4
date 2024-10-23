@@ -16,7 +16,7 @@ export class Stack {
   pop(): number | undefined {
     let topmostValue = undefined;
     if (this.isEmpty())
-      return undefined;
+       throw new Error('No value to pop');
     else 
       topmostValue = this.top?.val;  
       this.top = this.top?.next;
